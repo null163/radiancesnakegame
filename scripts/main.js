@@ -586,52 +586,44 @@ function drawGame() { //打印贴图
   //打印食物
   if (gameOn) {
     food.forEach(obj => {
-      const div = document.createElement("div")
       const img = document.createElement("img")
-      div.style.top = (obj.y * cellSize - 2) / 659 * windowHeight + 'px'
-      div.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
-      div.style.position = 'absolute'
+      img.style.top = (obj.y * cellSize - 2) / 659 * windowHeight + 'px'
+      img.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
+      img.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 3) / 659 * windowHeight + 'px'
       img.style.height = (cellSize + 4) / 659 * windowHeight + 'px'
-      div.appendChild(img)
-      gameContainer.appendChild(div)
+      gameContainer.appendChild(img)
     })
     movingFood31.forEach(obj => {
-      const div = document.createElement("div")
       const img = document.createElement("img")
-      div.style.top = (obj.y * cellSize + 1) / 659 * windowHeight + 'px'
-      div.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
-      div.style.position = 'absolute'
+      img.style.top = (obj.y * cellSize + 1) / 659 * windowHeight + 'px'
+      img.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
+      img.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 2) / 659 * windowHeight + 'px'
       img.style.height = (cellSize - 1) / 659 * windowHeight + 'px'
-      div.appendChild(img)
-      gameContainer.appendChild(div)
+      gameContainer.appendChild(img)
     })
     movingFood32.forEach(obj => {
-      const div = document.createElement("div")
       const img = document.createElement("img")
-      div.style.top = (obj.y * cellSize + 1) / 659 * windowHeight + 'px'
-      div.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
-      div.style.position = 'absolute'
+      img.style.top = (obj.y * cellSize + 1) / 659 * windowHeight + 'px'
+      img.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
+      img.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 2) / 659 * windowHeight + 'px'
       img.style.height = (cellSize - 1) / 659 * windowHeight + 'px'
-      div.appendChild(img)
-      gameContainer.appendChild(div)
+      gameContainer.appendChild(img)
     })
     movingFood2.forEach(obj => {
-      const div = document.createElement("div")
       const img = document.createElement("img")
-      div.style.top = (obj.y * cellSize - 2) / 659 * windowHeight + 'px'
-      div.style.left = (obj.x * cellSize - 2) / 659 * windowHeight + 'px'
-      div.style.position = 'absolute'
+      img.style.top = (obj.y * cellSize - 2) / 659 * windowHeight + 'px'
+      img.style.left = (obj.x * cellSize - 2) / 659 * windowHeight + 'px'
+      img.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 3) / 659 * windowHeight + 'px'
       img.style.height = (cellSize + 4) / 659 * windowHeight + 'px'
-      div.appendChild(img)
-      gameContainer.appendChild(div)
+      gameContainer.appendChild(img)
     })
   }
 
@@ -718,14 +710,12 @@ function drawGame() { //打印贴图
   })
 
   //打印头部
-  let div = document.createElement("div")
   let head = document.createElement("img")
-  div.backgroundImage = './assets/straightV.png'
-  div.style.position = 'absolute'
+  head.style.position = 'absolute'
   if (!gameOn && !gameOver) {
     head.src = './assets/sleep.png'
-    div.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
-    div.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
+    head.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
+    head.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
     head.style.width = (cellSize + 8) / 659 * windowHeight + 'px'
     head.style.height = (cellSize + 6) / 659 * windowHeight + 'px'
   }
@@ -737,8 +727,8 @@ function drawGame() { //打印贴图
     if (gameOver) head.src = './assets/deadV.png'
     else if (speedUp) head.src = './assets/rushV.png'
     else head.src = './assets/headV.png'
-    div.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
-    div.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
+    head.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
+    head.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
     head.style.width = (cellSize + 8) / 659 * windowHeight + 'px'
     head.style.height = (cellSize + 6) / 659 * windowHeight + 'px'
   }
@@ -751,8 +741,8 @@ function drawGame() { //打印贴图
     else if (speedUp) head.src = './assets/rushV.png'
     else head.src = './assets/headV.png'
     head.classList.add('flipVH')
-    div.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
-    div.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
+    head.style.top = (snake[0].y * cellSize - 3) / 659 * windowHeight + 'px'
+    head.style.left = (snake[0].x * cellSize - 4) / 659 * windowHeight + 'px'
     head.style.width = (cellSize + 8) / 659 * windowHeight + 'px'
     head.style.height = (cellSize + 6) / 659 * windowHeight + 'px'
   }
@@ -764,8 +754,8 @@ function drawGame() { //打印贴图
     if (gameOver) head.src = './assets/deadH.png'
     else if (speedUp) head.src = './assets/rushH.png'
     else head.src = './assets/headH.png'
-    div.style.top = (snake[0].y * cellSize - 4) / 659 * windowHeight + 'px'
-    div.style.left = (snake[0].x * cellSize - 3) / 659 * windowHeight + 'px'
+    head.style.top = (snake[0].y * cellSize - 4) / 659 * windowHeight + 'px'
+    head.style.left = (snake[0].x * cellSize - 3) / 659 * windowHeight + 'px'
     head.style.width = (cellSize + 6) / 659 * windowHeight + 'px'
     head.style.height = (cellSize + 8) / 659 * windowHeight + 'px'
   }
@@ -778,13 +768,12 @@ function drawGame() { //打印贴图
     else if (speedUp) head.src = './assets/rushH.png'
     else head.src = './assets/headH.png'
     head.classList.add('flipVH')
-    div.style.top = (snake[0].y * cellSize - 4) / 659 * windowHeight + 'px'
-    div.style.left = (snake[0].x * cellSize - 3) / 659 * windowHeight + 'px'
+    head.style.top = (snake[0].y * cellSize - 4) / 659 * windowHeight + 'px'
+    head.style.left = (snake[0].x * cellSize - 3) / 659 * windowHeight + 'px'
     head.style.width = (cellSize + 6) / 659 * windowHeight + 'px'
     head.style.height = (cellSize + 8) / 659 * windowHeight + 'px'
   }
-  div.appendChild(head)
-  gameContainer.appendChild(div)
+  gameContainer.appendChild(head)
 
   //打印地图边缘线
   const img = document.createElement("img")
