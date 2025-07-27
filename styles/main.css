@@ -1,0 +1,153 @@
+@font-face {
+    font-family: myFont;
+    src: url(../fonts/douyuFont0-9.woff2);
+}
+
+@font-face {
+    font-family: myFont2;
+    src: url(../fonts/huxiaoboLOADING.woff2);
+}
+
+:root {
+    --bgColor: #e1fafd;
+    --scAniColor: #6ba9bf;
+    --emptyScColor: #6ba9bf;
+    --maxScoreColor: #6ba9bf;
+    --currentScoreColor: #f5d489;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--bgColor);
+}
+
+.flipH {
+    transform: scaleX(-1);
+}
+
+.flipV {
+    transform: scaleY(-1);
+}
+
+.flipVH {
+    transform: scale(-1, -1);
+}
+
+.whole {
+    position: relative;
+    margin: 0 auto;
+}
+
+.scoreAnimate {
+    z-index: 4;
+}
+
+.scAniText {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0px;
+    font-family: myFont;
+    color: var(--scAniColor);
+}
+
+.bgHead {
+    z-index: 3;
+}
+
+.background {
+    z-index: 1;
+}
+
+.bgKeyboard {
+    display: flex;
+    z-index: 2;
+}
+
+.mask {
+    z-index: 2;
+    background-color: var(--bgColor);
+}
+
+.key {
+    z-index: 3;
+}
+
+.score {
+    vertical-align: top;
+    font-family: myFont;
+    color: var(--emptyScColor);
+}
+
+.pausePanelContainer {
+    position: relative;
+    z-index: 5;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.musicON,
+.continue {
+    position: absolute;
+    /* background-color: #ffb8b890; */
+}
+
+.gameOverPanelContainer {
+    position: relative;
+    z-index: 5;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.again {
+    position: absolute;
+    /* background-color: #ffb8b890; */
+}
+
+.maxScore {
+    font-family: myFont;
+    color: var(--maxScoreColor);
+}
+
+.currentScore {
+    font-family: myFont;
+    color: var(--currentScoreColor);
+}
+
+.loadingContainer {
+    background-color: var(--bgColor);
+    z-index: 6;
+}
+
+.loadingText {
+    z-index: 7;
+    font-family: myFont2;
+    color: var(--scAniColor);
+}
+
+.scoreAnimate,
+.scAniText,
+.bgHead,
+.background,
+.gameArea,
+.bgKeyboard,
+.mask,
+.pause,
+.speedUp,
+.dirControl,
+.key,
+.scoreContainer,
+.tip,
+.maxScore,
+.currentScore,
+.loadingContainer,
+.loadingText {
+    position: absolute;
+}
