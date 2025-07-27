@@ -2,6 +2,10 @@
   background-image: url(../assets/bg4.png);
 }
 
+.maskUp {
+  background-image: url(../assets/mask.png);
+}
+
 .background {
   background-image: url(../assets/bg.png);
 }

@@ -15,6 +15,7 @@ const images = [
   "./assets/food2.png",
   "./assets/food3.png",
   "./assets/hole.png",
+  "./assets/mask.png",
   "./assets/speed_default.png",
   "./assets/pause_default.png",
   "./assets/speed_hold.png",

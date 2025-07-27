@@ -49,6 +49,7 @@ const keyboard = document.querySelector('.bgKeyboard')
 const gameContainer = document.querySelector('.background')
 const maskLeft = document.getElementById('maskLeft')
 const maskRight = document.getElementById('maskRight')
+const maskUp = document.querySelector('.maskUp')
 
 const pauseButton = document.querySelector('.pause')
 const speedButton = document.querySelector('.speedUp')
@@ -73,7 +74,7 @@ const key = document.querySelector('.key')
 
 const BGM1 = document.getElementById('bgm1')
 
-let windowHeight, bodySize, gameWidth, headHeight, headWidth, dirControlWidth
+let windowHeight, gameWidth, headHeight, headWidth, dirControlWidth, headTop
 let keyboardHeight, buttonWidth, buttonTop1, buttonTop2, buttonLeft, i, goTop
 let keyboardTop, keyboardLeft, score1, score2, font, letter, Left, Top, goLeft
 let tipWidth, tipHeight, tipTop, tipLeft, windowWidth, pausePanelHeight, buttonHeight
@@ -84,7 +85,7 @@ let maxScore1, maxScore2, currentScore1, currentScore2, scAniHeight, scAniFont1
 let goContainerHeight, goContainerwidth, goContainerTop, goContainerLeft
 let keyFrames, timing, animation, scAniOutline, keyFrames2, timing2, keyFrames3
 
-let loadingTop, loadingFont
+let loadingTop, loadingFont, maskTop, maskHeight
 const loadingContainer = document.querySelector('.loadingContainer')
 const loadingText = document.querySelector('.loadingText')
 
@@ -93,17 +94,20 @@ function resize() {
   windowHeight = window.innerHeight
   windowWidth = window.innerWidth
 
-  bodySize = 1000 / 659 * windowHeight
   gameWidth = 286 / 659 * windowHeight
   headHeight = 136 / 659 * windowHeight
   headWidth = 304 / 659 * windowHeight
   keyboardHeight = 221 / 659 * windowHeight
-  Top = headHeight - 5 / 659 * windowHeight
+  headTop = 8 / 659 * windowHeight
+  Top = headHeight + headTop - 2 / 659 * windowHeight
   Left = (headWidth - gameWidth) / 2
+  maskTop = headHeight + headTop - 10 / 659 * windowHeight
+  maskHeight = 10 / 659 * windowHeight
 
   // 版头
   head.style.height = headHeight + 'px'
   head.style.width = headWidth + 'px'
+  head.style.top = headTop + 'px'
   head.style.left = (Left - 4 / 659 * windowHeight) + 'px'
   head.style.backgroundSize = headWidth + 'px ' + headHeight + 'px'
 
@@ -131,6 +135,12 @@ function resize() {
   maskRight.style.height = (gameWidth + 20 / 659 * windowHeight) + 'px'
   maskRight.style.top = (Top - 10 / 659 * windowHeight) + 'px'
   maskRight.style.left = (gameWidth + 9 / 659 * windowHeight) + 'px'
+
+  maskUp.style.width = gameWidth + 'px'
+  maskUp.style.height = maskHeight + 'px'
+  maskUp.style.top = maskTop + 'px'
+  maskUp.style.left = Left + 'px'
+  maskUp.style.backgroundSize = gameWidth + 'px ' + maskHeight + 'px'
 
   whole.style.width = headWidth + 'px'
 
@@ -339,10 +349,6 @@ function resize() {
 window.addEventListener('resize', function () {
   resize()
   drawGame()
-})
-
-BGM1.addEventListener("canplaythrough", () => {
-  BGM1.play()
 })
 
 resize()
@@ -587,7 +593,7 @@ function drawGame() { //打印贴图
       div.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 3) / 659 * windowHeight + 'px'
-      img.style.height = (cellSize + 3) / 659 * windowHeight + 'px'
+      img.style.height = (cellSize + 4) / 659 * windowHeight + 'px'
       div.appendChild(img)
       gameContainer.appendChild(div)
     })
@@ -1053,14 +1059,29 @@ function GameOver() { //游戏结束
     maxScore = totalScore
     localStorage.setItem(localStorageKey, maxScore)
   }
-  if (maxScore > 99999) {
-    maxScoreText.innerHTML = Math.floor(maxScore / 100) / 100 + '万'
+
+  if (maxScore > 99999 && maxScore < 1000000) {
+    maxScoreText.innerHTML = Math.floor(maxScore / 1000 * 10) / 10 + 'K'
+  }
+  else if (maxScore >= 1000000 && maxScore < 10000000) {
+    maxScoreText.innerHTML = Math.trunc(maxScore / 1000) + 'K'
+  }
+  else if (maxScore >= 10000000) {
+    maxScoreText.innerHTML = '9999K'
   }
   else maxScoreText.innerHTML = maxScore
-  if (totalScore > 99999) {
-    currentScoreText.innerHTML = Math.floor(totalScore / 100) / 100 + '万'
+
+  if (totalScore > 99999 && totalScore < 1000000) {
+    currentScoreText.innerHTML = Math.floor(totalScore / 1000 * 1000) / 1000 + 'K'
+  }
+  else if (totalScore >= 1000000 && totalScore < 10000000) {
+    currentScoreText.innerHTML = Math.trunc(totalScore / 1000) + 'K'
+  }
+  else if (totalScore >= 10000000) {
+    currentScoreText.innerHTML = '9999K'
   }
   else currentScoreText.innerHTML = totalScore
+
   if (totalScore < bound1) {
     gameOverPanel.style.backgroundImage = 'url(./assets/gameOverPanel1.png)'
     // 游戏结束界面 游戏结束界面-背景
@@ -1266,7 +1287,7 @@ function gameOnControl() {  //初始状态：按方向键开始游戏 //settle�
     if (firstLoad) {
       firstLoad = false
       musicIsOn = true
-      // BGM1.play()
+      BGM1.play()
       pausePanel.style.backgroundImage = 'url(./assets/pause_musicON.png)'
     }
     startLoop()
