@@ -587,12 +587,12 @@ function drawGame() { //打印贴图
   if (gameOn) {
     food.forEach(obj => {
       const img = document.createElement("img")
-      img.style.top = (obj.y * cellSize - 2) / 659 * windowHeight + 'px'
+      img.style.top = (obj.y * cellSize - 3) / 659 * windowHeight + 'px'
       img.style.left = (obj.x * cellSize - 1) / 659 * windowHeight + 'px'
       img.style.position = 'absolute'
       img.src = './assets/food' + obj.id + '.png'
       img.style.width = (cellSize + 3) / 659 * windowHeight + 'px'
-      img.style.height = (cellSize + 4) / 659 * windowHeight + 'px'
+      img.style.height = (cellSize + 5) / 659 * windowHeight + 'px'
       gameContainer.appendChild(img)
     })
     movingFood31.forEach(obj => {
