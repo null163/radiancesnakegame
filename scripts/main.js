@@ -1,6 +1,6 @@
 let digit = 11                    //分数栏最高位
-let bound1 = 500                  //第一阶段分数
-let bound2 = 1000                 //第二阶段分数
+let bound1 = 1000                  //第一阶段分数
+let bound2 = 3000                 //第二阶段分数
 let emptyScoreColor = '#6ba9bf'   //分数栏分数颜色（空白部分）
 let ScoreColor = '#f5d489'        //分数栏分数颜色（有值部分）
 let foodscore1 = 10               //食物1加的分数
