@@ -21,7 +21,8 @@ window.addEventListener('keydown', function (e) {  //键盘按下
       dirToRight()
       break
     case 's':
-      if (!speedUp) speedStart()
+      // if (!speedUp) speedStart()
+      speedStart()
       break
   }
 
@@ -90,10 +91,10 @@ speedButton.addEventListener('touchstart', function (e) {  //加速键按住
   speedStart()
 })
 
-speedButton.addEventListener('touchend', function (e) {  //抬起：加速取消
-  e.preventDefault();
-  speedEnd()
-})
+// speedButton.addEventListener('touchend', function (e) {  //抬起：加速取消
+//   e.preventDefault();
+//   speedEnd()
+// })
 
 key.addEventListener('touchend', function (e) {  //抬起：方向键取消
   e.preventDefault();

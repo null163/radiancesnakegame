@@ -1187,16 +1187,22 @@ function speedStart() {  //加速开始
     moveSpeed = rushSpeed
     foodSpeed32 = rushSpeed
   }
-}
-
-function speedEnd() {  //加速结束
-  if (speedUp) {
+  else {
     speedUp = false
     speedButton.style.backgroundImage = 'url(./assets/speed_default.png)'
     moveSpeed = defaultSpeed
     foodSpeed32 = defaultSpeed
   }
 }
+
+// function speedEnd() {  //加速结束
+//   if (speedUp) {
+//     speedUp = false
+//     speedButton.style.backgroundImage = 'url(./assets/speed_default.png)'
+//     moveSpeed = defaultSpeed
+//     foodSpeed32 = defaultSpeed
+//   }
+// }
 
 function dirToUp() {
   if (!gameOver) {
