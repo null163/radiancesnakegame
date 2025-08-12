@@ -357,7 +357,7 @@ init()
 function init() { //初始化
   defaultSpeed = 300
   rushSpeed = 190
-  moveSpeed = defaultSpeed
+  // moveSpeed = defaultSpeed
   tailSpeed = 50
   foodSpeed2 = 600
   foodSpeed31 = 400
