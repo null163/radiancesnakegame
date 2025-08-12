@@ -367,7 +367,7 @@ function init() { //初始化
   scoreRefresh(0)
   scoreText.style.color = emptyScoreColor
   tail = 0
-  speedUp = false
+  // speedUp = false
   eatFood = false
   holeExist = false
   firstHole = true
@@ -1281,6 +1281,8 @@ function gameOnControl() {  //初始状态：按方向键开始游戏 //settle�
     gameOn = true
     if (firstLoad) {
       firstLoad = false
+      moveSpeed = defaultSpeed
+      speedUp = false
       musicIsOn = true
       BGM1.play()
       pausePanel.style.backgroundImage = 'url(./assets/pause_musicON.png)'
